@@ -1,0 +1,24 @@
+.monthlyexpenses__container {
+    display: block;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(128, 128, 128, 0.37);
+    padding-top: 1.5rem;
+}
+
+.monthlyexpenses__container p {
+    font-family: var(--regular);
+    color: rgba(128, 128, 128, 0.623);
+}
+
+.monthlyexpenses__container h1 {
+    font-family: var(--regular);
+    font-size: 48px;
+    padding-top: 0rem;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .monthlyexpenses__container h1 {
+        font-size: 36px;
+    }
+}

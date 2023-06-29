@@ -1,0 +1,25 @@
+.main__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #E9E3D2;
+}
+
+.app__container {
+  display: block;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .main__container {
+    display: block;
+    height: 100vh;
+    width: 100vw;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-top: 5rem;
+  }
+  
+}

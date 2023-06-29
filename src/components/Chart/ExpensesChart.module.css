@@ -1,0 +1,6 @@
+.chartbar__container {
+    display: flex;
+    height: 50%;
+    width: 100%;
+    padding-top: 2rem;
+}
