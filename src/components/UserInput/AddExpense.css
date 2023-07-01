@@ -1,0 +1,63 @@
+.addexpenses__container {
+    display: grid;
+    width: 100%;
+    background-color: white;
+    height: fit-content;
+    padding: 2rem;
+    border-radius: 20px;
+    margin-top: 1rem;
+    font-family: var(--regular);
+}
+
+.addexpenses__container label {
+    margin-bottom: 0.5rem;
+}
+
+.addexpenses__container input {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border-color: rgba(128, 128, 128, 0.144);
+}
+
+.addexpenses__container input:focus {
+    outline: none;
+    background-color: var(--soft-red);
+}
+
+.addexpenses__container button {
+    margin-top: 1rem;
+    width: 20%;
+    margin: 1rem auto 0 auto;
+    background-color: var(--soft-red);
+    border: none;
+    padding: 1rem;
+    border-radius: 10px;
+    font-family: var(--regular);
+    color: white;
+    cursor: pointer;
+}
+
+.day__input {
+    display: grid;
+    width: 100%;
+}
+
+.price__input {
+    display: grid;
+    width: 100%;
+}
+
+.invalid input {
+    background-color: rgba(255, 0, 0, 0.199);
+    border-color: red;
+}
+
+.invalid label {
+    color: red;
+}
+
+.invalid p {
+    color: red;
+}
+
