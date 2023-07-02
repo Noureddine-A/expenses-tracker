@@ -61,3 +61,8 @@
     color: red;
 }
 
+.addexpenses__container button:disabled {
+    background-color: grey;
+    cursor: default;
+}
+

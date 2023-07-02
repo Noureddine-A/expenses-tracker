@@ -1,9 +1,14 @@
 import React from "react";
 
+import { useDispatch } from "react-redux";
+import { expensesActions } from "../../store/redux";
+
 import "./AddExpense.css";
-import useValidation from "../hooks/use-validation";
+import useValidation from "../../hooks/use-validation";
 
 const AddExpense = () => {
+  const dispatch = useDispatch();
+
   const validateDayInput = (day) => {
     if (
       day.trim() === "mon" ||
@@ -25,7 +30,6 @@ const AddExpense = () => {
     if (isNaN(price)) {
       return false;
     }
-
     return true;
   };
 
@@ -55,6 +59,18 @@ const AddExpense = () => {
   const priceInputIsInvalid =
     !priceIsValid && priceTouched ? "price__input invalid" : "price__input";
 
+  if (dayIsValid && priceIsValid) {
+    formIsValid = true;
+  }
+
+  const addExpenseClickHandler = (event) => {
+    event.preventDefault();
+
+    if(dayInput === "mon") {
+      dispatch(expensesActions.addMonday(parseInt(priceInput)));
+    }
+  }
+
   return (
     <form className="addexpenses__container">
       <div className={dayInputIsInvalid}>
@@ -64,10 +80,10 @@ const AddExpense = () => {
       </div>
       <div className={priceInputIsInvalid}>
         <label>Price</label>
-        <input onChange={priceChangeHandler} onBlur={priceBlurHandler}></input>
+        <input text="number" onChange={priceChangeHandler} onBlur={priceBlurHandler}></input>
         {priceError && <p>Enter a valid input</p>}
       </div>
-      <button disabled={!formIsValid}>Add</button>
+      <button onClick={addExpenseClickHandler} disabled={!formIsValid}>Add</button>
     </form>
   );
 };
