@@ -26,7 +26,6 @@ const AddExpense = () => {
   };
 
   const validatePriceInput = (price) => {
-    console.log(price);
     if (isNaN(price)) {
       return false;
     }
@@ -66,10 +65,15 @@ const AddExpense = () => {
   const addExpenseClickHandler = (event) => {
     event.preventDefault();
 
-    if(dayInput === "mon") {
-      dispatch(expensesActions.addMonday(parseInt(priceInput)));
+    if (dayInput === "mon" || 'tue' || 'wed' || 'thu' || 'fri' || 'sat' || 'sun') {
+      dispatch(
+        expensesActions.addToDay({
+          price: parseInt(priceInput),
+          day: dayInput,
+        })
+      );
     }
-  }
+  };
 
   return (
     <form className="addexpenses__container">
@@ -80,10 +84,16 @@ const AddExpense = () => {
       </div>
       <div className={priceInputIsInvalid}>
         <label>Price</label>
-        <input text="number" onChange={priceChangeHandler} onBlur={priceBlurHandler}></input>
+        <input
+          text="number"
+          onChange={priceChangeHandler}
+          onBlur={priceBlurHandler}
+        ></input>
         {priceError && <p>Enter a valid input</p>}
       </div>
-      <button onClick={addExpenseClickHandler} disabled={!formIsValid}>Add</button>
+      <button onClick={addExpenseClickHandler} disabled={!formIsValid}>
+        Add
+      </button>
     </form>
   );
 };
