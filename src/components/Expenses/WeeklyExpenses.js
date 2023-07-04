@@ -2,7 +2,7 @@ import React from 'react';
 
 import {useSelector } from 'react-redux/es/hooks/useSelector';
 
-import classes from './MonthlyExpenses.module.css';
+import classes from './WeeklyExpenses.module.css';
 
 const MonthlyExpenses = () => {
   const overallExpenses = useSelector(state => state.expenses.overallPrice)

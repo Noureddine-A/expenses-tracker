@@ -1,5 +1,4 @@
 .chartbar {
-  display: block;
   height: 100%;
   width: 17%;
   margin: auto;
@@ -7,16 +6,27 @@
   overflow-x: hidden;
 }
 
+.chartbar__bar-container {
+  position: relative;
+  height: 80%;
+}
+
+.chartbar__day {
+  height: 20%;
+  font-family: var(--regular);
+  color: rgba(128, 128, 128, 0.521);
+}
+
 .chartbar__bar {
+  position: absolute;
+  bottom: 0;
   background-color: var(--soft-red);
   margin-right: 0.7rem;
   border-radius: 5px;
-  height: 80%;
   margin-bottom: 1rem;
-  width: 100%;
+  width: 85%;
 }
 
-.chartbar p {
-  font-family: var(--regular);
-  color: rgba(128, 128, 128, 0.521);
+.chartbar__bar:hover {
+  background-color: var(--cyan);
 }

@@ -1,21 +1,32 @@
-import React from 'react';
+import React from "react";
 
-import classes from './ChartBar.module.css';
+import { Tooltip } from "@mui/material";
+
+import classes from "./ChartBar.module.css";
 
 const ChartBar = (props) => {
+  let height = "";
 
   const calculateHeight = () => {
-    let height = (props.dayPrice / props.overallPrice) * 100;
-    return height;
-  }
+    return (height =
+      ((props.dayPrice / props.overallPrice) * 100).toString() + "%");
+  };
 
   return (
     <div className={classes["chartbar"]}>
-      <div className={classes["chartbar__bar"]}>
+      <div className={classes["chartbar__bar-container"]}>
+        <Tooltip title={'$'+ props.dayPrice} placement="right">
+          <div
+            className={classes["chartbar__bar"]}
+            style={{ height: calculateHeight() }}
+          ></div>
+        </Tooltip>
       </div>
-      <p>{props.day}</p>
+      <div className={classes["chartbar__day"]}>
+        <p>{props.day}</p>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default ChartBar
+export default ChartBar;
